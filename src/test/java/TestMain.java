@@ -38,7 +38,7 @@ public class TestMain {
         int[] expected = new int[]{1, 4, 3, 2, 5};
         int[] actual = Arrays.stream(
                 outContent.toString()
-                        .replaceAll("\\r\\n", " ")
+                        .replaceAll("[\\r,\\n]", " ")
                         .split(" ")
         ).mapToInt(Integer::parseInt).toArray();
 
@@ -78,7 +78,7 @@ public class TestMain {
         int[] expected = new int[]{2, 1};
         int[] actual = Arrays.stream(
                 outContent.toString()
-                        .replaceAll("\\r\\n", " ")
+                        .replaceAll("[\\r,\\n]", " ")
                         .split(" ")
         ).mapToInt(Integer::parseInt).toArray();
 
