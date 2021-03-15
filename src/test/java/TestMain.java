@@ -5,8 +5,10 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
 import java.util.Locale;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestMain {
@@ -33,10 +35,14 @@ public class TestMain {
         System.setIn(new ByteArrayInputStream(data.getBytes()));
 
         Main.main(null);
-        String expected = "1\r\n4\r\n3\r\n2\r\n5\r\n";
-        String actual = outContent.toString();
+        int[] expected = new int[]{1, 4, 3, 2, 5};
+        int[] actual = Arrays.stream(
+                outContent.toString()
+                        .replaceAll("\\r\\n", " ")
+                        .split(" ")
+        ).mapToInt(Integer::parseInt).toArray();
 
-        assertEquals(expected, actual);
+        assertArrayEquals(expected, actual);
     }
 
     @Test
@@ -45,8 +51,8 @@ public class TestMain {
         System.setIn(new ByteArrayInputStream(data.getBytes()));
 
         Main.main(null);
-        String expected = "NO\r\n";
-        String actual = outContent.toString();
+        String expected = "NO";
+        String actual = outContent.toString().replaceAll("[\\r\\n]", "");
 
         assertEquals(expected, actual);
     }
@@ -57,8 +63,8 @@ public class TestMain {
         System.setIn(new ByteArrayInputStream(data.getBytes()));
 
         Main.main(null);
-        String expected = "NO\r\n";
-        String actual = outContent.toString();
+        String expected = "NO";
+        String actual = outContent.toString().replaceAll("[\\r\\n]", "");
 
         assertEquals(expected, actual);
     }
@@ -69,10 +75,14 @@ public class TestMain {
         System.setIn(new ByteArrayInputStream(data.getBytes()));
 
         Main.main(null);
-        String expected = "2\r\n1\r\n";
-        String actual = outContent.toString();
+        int[] expected = new int[]{2, 1};
+        int[] actual = Arrays.stream(
+                outContent.toString()
+                        .replaceAll("\\r\\n", " ")
+                        .split(" ")
+        ).mapToInt(Integer::parseInt).toArray();
 
-        assertEquals(expected, actual);
+        assertArrayEquals(expected, actual);
     }
 
     @Test
@@ -81,8 +91,8 @@ public class TestMain {
         System.setIn(new ByteArrayInputStream(data.getBytes()));
 
         Main.main(null);
-        String expected = "NO\r\n";
-        String actual = outContent.toString();
+        String expected = "NO";
+        String actual = outContent.toString().replaceAll("[\\r\\n]", "");
 
         assertEquals(expected, actual);
     }
