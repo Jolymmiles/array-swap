@@ -11,10 +11,14 @@ public class Main {
         for (int count = 0; count < n; count += 1){
             array[count] = sc.nextInt();
         }
-        int time_elem = array[a];
-        array[a] = array[b];
-        array[b] = time_elem;
-        for (int elem : array) System.out.println(elem);
+        if (n < a | n < b | n == 0) {
+            System.out.println("NO");
+        } else {
+            int time_elem = array[a];
+            array[a] = array[b];
+            array[b] = time_elem;
+            for (int elem : array) System.out.println(elem);
+        }
 
 
 
