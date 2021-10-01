@@ -11,7 +11,7 @@ public class Main {
         for (int count = 0; count < n; count += 1){
             array[count] = sc.nextInt();
         }
-        if (n < a | n < b | n == 0) {
+        if (n < a | n < b | n == 0 | a == b) {
             System.out.println("NO");
         } else {
             int time_elem = array[a];
