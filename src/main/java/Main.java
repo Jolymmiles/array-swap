@@ -11,12 +11,14 @@ public class Main {
         for (int count = 0; count < n; count += 1){
             array[count] = sc.nextInt();
         }
-        if (n < a | n < b | n == 0 | a == b) {
+        if (n < a | n < b | n == 0) {
             System.out.println("NO");
-        } else {
+        } else if (a != b) {
             int time_elem = array[a];
             array[a] = array[b];
             array[b] = time_elem;
+            for (int elem : array) System.out.println(elem);
+        } else if(a == b){
             for (int elem : array) System.out.println(elem);
         }
 
